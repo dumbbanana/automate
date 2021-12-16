@@ -1,0 +1,14 @@
+function myFunction() {
+  var ss=SpreadsheetApp.getActiveSpreadsheet();
+  var s=ss.getActiveSheet();
+  var c=s.getActiveCell();
+  var fldr=DriveApp.getFolderById("1qQSSU6c3WJDJajH04MRZLLxWIgjBzOAu");
+  var files=fldr.getFiles();
+  var names=[],f,str;
+  while (files.hasNext()) {
+    f = files.next();
+    names.push([f.getUrl(), f.getName()]);
+  }
+  s.getRange(c.getRow(), c.getColumn(), names.length, names[0].length).setValues(names);
+}
+/*a script to save share links of the pdf files in a spreadsheet*/
