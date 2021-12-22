@@ -15,7 +15,7 @@ def read_template(filename) -> str:
     """
     Reads a file completely and returns it as a string.
     """
-    filehandle = open(filename, 'r')
+    filehandle = open(filename, 'r', encoding='utf-8')
     content = filehandle.read()
     filehandle.close()
     return content
@@ -39,10 +39,10 @@ def file_object(file_name):
         exit()
 
 
-mail_subject = "Your subject"
-sender_email = "your mail"
-sender_name = "Your name"
-password = "haahahha"
+mail_subject = ""
+sender_email = ""
+sender_name = ""
+password = ""
 template_file = "template.html"
 csv_file = "details.csv"
 
@@ -57,7 +57,7 @@ for receiver_email, receiver_name in zip(receiver_emails, receiver_names):
     msg['From'] = formataddr((sender_name, sender_email))
     msg['To'] = formataddr((receiver_name, receiver_email))
     mail_content = read_template(template_file)
-    mail_content = mail_content.replace('{mail_receiver}', receiver_name)
+    mail_content = mail_content.replace('{receiver_name}', receiver_name)
     msg.attach(MIMEText(mail_content, 'html'))
 
     # filename = "filename.pdf"
