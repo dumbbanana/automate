@@ -81,7 +81,7 @@ python send_mails.py
 
 -  Copy the folder ID which contains the PDF files
 -   Open the CSV file with details in google sheets in the same folder
--   Paste the google script in `Exections -> AppScript`
+-   Paste the google script in `Extensions -> AppScript`
 -   Run the function
 -   Links for PDF files with view permission will be generated in order in the google sheet.
  
